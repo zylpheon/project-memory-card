@@ -1,0 +1,122 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  color: white;
+  font-family: Arial, sans-serif;
+  background-image: url(bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+h1 {
+  margin-bottom: 20px;
+  color: #163552;
+  transition: 0.3s ease-in-out;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+h1:hover {
+  transform: scale(1.03);
+  border-bottom: 3px solid #163552;
+}
+@media (max-width: 540px) {
+  h1 {
+    font-size: 22px;
+  }
+}
+.container {
+  border-radius: 1rem;
+  padding: 10px;
+  background-color: #eef1f6;
+  box-shadow: 0 4px 10px #163552;
+}
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-gap: 10px;
+}
+.card {
+  width: 75px;
+  height: 75px;
+  perspective: 1000px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  border-radius: 8px;
+}
+.card-inner:hover {
+  box-shadow: 0 4px 10px #163552;
+}
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: 8px;
+}
+.card-front {
+  background-color: #3498db;
+}
+.card-back {
+  background-color: #ecf0f1;
+  transform: rotateY(180deg);
+}
+#reset-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #e74c3c;
+  color: #eef1f6;
+  transition: transform 0.6s;
+  box-shadow: 0 4px 10px #163552;
+}
+#reset-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px #163552;
+}
+footer {
+  margin-top: 20px;
+}
+footer a {
+  color: #eef1f6;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.6s;
+}
+footer a:hover {
+  transform: scale(1.03);
+}
+@media (max-width: 540px) {
+  .game-board {
+    grid-template-columns: repeat(4, 50px);
+  }
+  .card {
+    width: 50px;
+    height: 50px;
+  }
+  #reset-button {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
